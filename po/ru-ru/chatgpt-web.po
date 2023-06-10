@@ -1,1 +1,68 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
+msgid "chatgpt-web"
+msgstr "ChatGPT-Web"
+
+msgid "ChatGPT-Web is the version used on OPENWRT of OPENAI"
+msgstr "Эта версия ChatGPT-Web использует API OpenAI в OpenWRT"
+
+msgid "Base Setting"
+msgstr "Основные настройки"
+
+msgid "GPT Model"
+msgstr "Модель GPT"
+
+msgid "Character images"
+msgstr "Выберите свою аватарку"
+
+msgid "boy"
+msgstr "мальчик"
+
+msgid "boy2"
+msgstr "мальчик 2"
+
+msgid "boy3"
+msgstr "мальчик 3"
+
+msgid "girl"
+msgstr "девочка"
+
+msgid "girl2"
+msgstr "девочка 2"
+
+msgid "girl3"
+msgstr "девочка 3"
+
+msgid "dog"
+msgstr "собака"
+
+msgid "cartoon"
+msgstr "мультяшка"
+
+msgid "cartoonboy"
+msgstr "мальчик-мультяшка"
+
+msgid "cartoonboy2"
+msgstr "мальчик-мультяшка 2"
+
+msgid "cartoongirl"
+msgstr "девочка-мультяшка"
+
+msgid "cartoongirl2"
+msgstr "девочка-мультяшка 2"
+
+msgid "OpenAI interface"
+msgstr "Интерфейс OpenAI"
+
+msgid "API Key"
+msgstr "Токен API"
+
+msgid "Enter your own API key, and if you do not have one, enter the official website API to generate it:"
+msgstr "Укажите токен API, а если у вас его нет, откройте официальный сайт с API, чтобы сгенерировать его"
+
+msgid "<a href=\'https://platform.openai.com/account/api-keys' target=\'_blank\'>Click to open</a>"
+msgstr "<a href=\'https://platform.openai.com/account/api-keys' target=\'_blank\'>Открыть сайт</a>"
+
+msgid "</br>For specific usage, see:"
+msgstr "</br>Для подробностей см.здесь"
