@@ -52,6 +52,9 @@ msgstr "девочка-мультяшка"
 msgid "cartoongirl2"
 msgstr "девочка-мультяшка 2"
 
+msgid "cartoongirl3"
+msgstr "девочка-мультяшка 3"
+
 msgid "OpenAI interface"
 msgstr "Интерфейс OpenAI"
 
