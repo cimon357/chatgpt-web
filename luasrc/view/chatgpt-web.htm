@@ -206,16 +206,16 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <svg width="24" height="24">
                         <use xlink:href="#addIcon" />
                     </svg>
-                    <span>新建会话</span>
+                    <span>Новая сессия</span>
                 </div>
-                <div id="newFolder" title="新建文件夹">
+                <div id="newFolder" title="Новая папка">
                     <svg width="24" height="24">
                         <use xlink:href="#newFolderIcon" />
                     </svg>
                 </div>
             </div>
             <div class="extraChat">
-                <input type="text" id="searchChat" placeholder="搜索" />
+                <input type="text" id="searchChat" placeholder="Поиск" />
                 <div id="clearSearch">
                     <svg width="24" height="24">
                         <use xlink:href="#closeIcon" />
@@ -229,13 +229,13 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
 			
             <div class="navFooter">
                 <div class="navFunc">
-                    <div id="clearChat" title="清空">
+                    <div id="clearChat" title="Пустой">
                         <svg width="24" height="24">
                             <use xlink:href="#clearAllIcon" />
                         </svg>
                     </div>
 
-                    <div id="sysSetting" title="设置">
+                    <div id="sysSetting" title="Настройки">
                         <svg width="24" height="24">
                             <use xlink:href="#settingIcon" />
                         </svg>
@@ -259,7 +259,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 <div class="settings">
                     <button class="setBtn" id="setting">
                         <svg viewBox="0 0 100 100" width="30" height="30">
-                            <title>设置</title>
+                            <title>Настройки</title>
                             <circle cx="50" cy="20" r="10" fill="#000" />
                             <circle cx="50" cy="50" r="10" fill="#000" />
                             <circle cx="50" cy="80" r="10" fill="#000" />
@@ -268,62 +268,62 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 </div>
                 <div id="setDialog" style="display:none;">
                     <div class="setSwitch">
-                        <div data-id="convOption" class="activeSwitch">对话</div>
-                        <div data-id="speechOption">语音合成</div>
-                        <div data-id="recOption">语音识别</div>
+                        <div data-id="convOption" class="activeSwitch">Диалог</div>
+                        <div data-id="speechOption">Синтез речи</div>
+                        <div data-id="recOption">Распознавание речи</div>
                     </div>
                     <div id="convOption">
 
                     <div>
                         <div class="justSetLine presetSelect">
-                            <div>系统角色</div>
+                            <div>Системная роль</div>
                             <div>
-                                <label for="preSetSystem">预设角色</label>
+                                <label for="preSetSystem">Роль по умолчанию</label>
                                 <select id="preSetSystem">
-                                    <option value="">默认</option>
-                                    <option value="normal">助手</option>
-                                    <option value="cat">猫娘</option>
-                                    <option value="emoji">表情</option>
-                                    <option value="image">有图</option>
+                                    <option value="">По умолчанию</option>
+                                    <option value="normal">Помощник</option>
+                                    <option value="cat">Девочка-кошка</option>
+                                    <option value="emoji">(?) emoji</option>
+                                    <option value="image">(?) image</option>
                                 </select>
                             </div>
                         </div>
-                        <textarea class="inputTextClass areaTextClass" placeholder="你是一个乐于助人的助手，尽量简明扼要地回答"
+                        <textarea class="inputTextClass areaTextClass" placeholder="Вы полезный помощник, старайтесь отвечать лаконично"
                             id="systemInput"></textarea>
                     </div>
                     <div>
-                        <span>角色性格</span>
+                        <span>Характер</span>
                             <input type="range" id="top_p" min="0" max="1" value="0.7" step="0.05" />
                         <div class="selectDef">
-                            <span>准确严谨</span>
-                            <span>灵活创新</span>
+                            <span>Точный и строгий</span>
+                            <span>Креативный</span>
                         </div>
                     </div>
                     <div>
-                        <span>回答质量</span>
+                        <span>Качество ответа</span>
                         <input type="range" id="temp" min="0" max="2" value="1" step="0.05" />
                         <div class="selectDef">
-                                <span>重复保守</span>
-                                <span>胡言乱语</span>
+                                <span>(?) Повторная консервация</span>
+                                <span>(?) Ерунда</span>
                             </div>
                         </div>
                         <div>
-                            <span>打字机速度</span>
+                            <span>Скорость вывода</span>
                             <input type="range" id="textSpeed" min="0" max="100" value="88" step="1" />
                             <div class="selectDef">
-                                <span>慢</span>
-                                <span>快</span>
+                                <span>Низкая</span>
+                                <span>Высокая</span>
                             </div>
                         </div>
                         <div>
-                            <span class="inlineTitle">连续对话</span>
+                            <span class="inlineTitle">Непрерывный диалог</span>
                             <label class="switch-slide">
                                 <input type="checkbox" id="enableCont" checked="true" hidden />
                             <label for="enableCont" class="switch-slide-label"></label>
                         </label>
                     </div>
                     <div>
-                        <span class="inlineTitle">长回复</span>
+                        <span class="inlineTitle">Длинный ответ</span>
                         <label class="switch-slide">
                             <input type="checkbox" id="enableLongReply" hidden />
                             <label for="enableLongReply" class="switch-slide-label"></label>
@@ -332,15 +332,15 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 </div>
                 <div id="speechOption" style="display: none;">
                     <div class="presetSelect presetModelCls">
-                        <label for="preSetService">语音合成服务</label>
+                        <label for="preSetService">Служба синтеза речи</label>
                         <select id="preSetService">
-                            <option value="3">Azure语音</option>
-                            <option selected value="2">Edge语音</option>
-                            <option value="1">系统语音</option>
+                            <option value="3">Azure</option>
+                            <option selected value="2">Edge</option>
+                            <option value="1">Система</option>
                         </select>
                     </div>
                     <div class="presetSelect presetModelCls">
-                        <label for="preSetAzureRegion">Azure 区域</label>
+                        <label for="preSetAzureRegion">Область Azure</label>
                         <select id="preSetAzureRegion">
                         </select>
                     </div>
@@ -353,15 +353,15 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                         <svg>
                             <use xlink:href="#loadingIcon" />
                         </svg>
-                        <span>加载语音</span>
+                        <span>Выбор голоса</span>
                     </div>
                     <div id="speechDetail">
                         <div>
                             <div class="justSetLine">
-                                    <div>选择语音</div>
+                                    <div>Выбрать голос</div>
                                 <div id="voiceTypes">
-                                    <span data-type="0">提问语音</span>
-                                    <span data-type="1" class="selVoiceType">回答语音</span>
+                                    <span data-type="0">Спрашивающий</span>
+                                    <span data-type="1" class="selVoiceType">Отвечающий</span>
                                 </div>
                             </div>
                             <select id="preSetSpeech">
@@ -369,49 +369,49 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                         </div>
                         <div class="justSetLine presetSelect" id="azureExtra" style="display:none;">
                             <div class="presetModelCls">
-                                <label for="preSetVoiceStyle">风格</label>
+                                <label for="preSetVoiceStyle">Стиль</label>
                                 <select id="preSetVoiceStyle">
                                 </select>
                             </div>
                             <div class="presetModelCls">
-                                <label for="preSetVoiceRole">角色</label>
+                                <label for="preSetVoiceRole">Роль</label>
                                 <select id="preSetVoiceRole">
                                 </select>
                             </div>
                         </div>
                         <div>
-                            <span>音量</span>
+                            <span>Тембр</span>
                             <input type="range" id="voiceVolume" min="0" max="1" value="1" step="0.1" />
                             <div class="selectDef">
-                                <span>低</span>
-                                <span>高</span>
+                                <span>Низкий</span>
+                                <span>Высокий</span>
                             </div>
                         </div>
                         <div>
-                            <span>语速</span>
+                            <span>Скорость речи</span>
                             <input type="range" id="voiceRate" min="0.1" max="2" value="1" step="0.1" />
                             <div class="selectDef">
-                                <span>慢</span>
-                                <span>快</span>
+                                <span>Медленно</span>
+                                <span>Быстро</span>
                             </div>
                         </div>
                         <div>
-                            <span>音调</span>
+                            <span>Тон</span>
                             <input type="range" id="voicePitch" min="0" max="2" value="1" step="0.1" />
                             <div class="selectDef">
-                                <span>平淡</span>
-                                <span>起伏</span>
+                                <span>(?) 平淡</span>
+                                <span>(?) 起伏</span>
                             </div>
                         </div>
                         <div>
-                            <span class="inlineTitle">连续朗读</span>
+                            <span class="inlineTitle">Непрерывное чтение</span>
                             <label class="switch-slide">
                                     <input type="checkbox" id="enableContVoice" checked="true" hidden />
                                 <label for="enableContVoice" class="switch-slide-label"></label>
                             </label>
                         </div>
                         <div>
-                            <span class="inlineTitle">自动朗读</span>
+                            <span class="inlineTitle">Автоматическое чтение</span>
                             <label class="switch-slide">
                                 <input type="checkbox" id="enableAutoVoice" hidden />
                                 <label for="enableAutoVoice" class="switch-slide-label"></label>
@@ -420,15 +420,15 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     </div>
                 </div>
                 <div id="recOption" style="display: none;">
-                        <div id="noRecTip" style="display: block;">当前环境不支持语音识别，请尝试使用chrome内核浏览器或重新部署https页面。</div>
+                        <div id="noRecTip" style="display: block;">Распознавание речи не поддержвается, используйте Chrome или откройте страницу https</div>
                         <div id="yesRec" style="display: none;">
                             <div class="presetSelect presetModelCls">
-                                <label for="selectLangOption">语言</label>
+                                <label for="selectLangOption">Язык</label>
                                 <select id="selectLangOption">
                                 </select>
                             </div>
                             <div class="presetSelect presetModelCls">
-                            <label for="selectDiaOption">方言</label>
+                            <label for="selectDiaOption">Диалект</label>
                             <select id="selectDiaOption">
                             </select>
                         </div>
@@ -440,11 +440,11 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 <div id="chatlog"></div>
                 <div id="stopChat"><svg width="24" height="24">
                         <use xlink:href="#stopResIcon" />
-                    </svg>停止</div>
+                    </svg>Стоп</div>
             </div>
             <div class="bottom_wrapper clearfix">
                 <div class="message_input_wrapper">
-                    <textarea class="message_input_text" spellcheck="false" placeholder="来问点什么吧"
+                    <textarea class="message_input_text" spellcheck="false" placeholder="Спросите что-нибудь"
                         id="chatinput"></textarea>
 						
                     <div id="voiceRec" style="display:none;">
@@ -466,12 +466,12 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     </div>
                 </div>
                 <button class="loaded" id="sendbutton">
-                    <span>发送</span>
+                    <span>Отправить</span>
                     <svg style="margin:0 auto;height:40px;width:100%;">
                         <use xlink:href="#loadingIcon" />
                     </svg>
                 </button>
-                <button class="clearConv" title="清空会话">
+                <button class="clearConv" title="Сброс">
                     <svg style="color: #e15b64;" width="29" height="29">
                         <use xlink:href="#closeIcon" />
                     </svg>
@@ -489,66 +489,66 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <use xlink:href="#closeIcon" />
                 </svg>
             </div>
-            <div class="sysTitle">设置</div>
+            <div class="sysTitle">Настройки</div>
             <div class="sysDetail">
 				
                 <div class="setContent">
-                    <div class="setTitle">会话</div>
+                    <div class="setTitle">Беседа</div>
                     <div class="setDetail dataDetail">
                         <div id="exportChat">
                             <svg width="24" height="24">
                                 <use xlink:href="#exportIcon" />
                             </svg>
-                            <span>导出</span>
+                            <span>Экспорт</span>
                         </div>
                         <label id="importChat" for="importChatInput">
                             <svg width="24" height="24">
                                 <use xlink:href="#importIcon" />
                             </svg>
-                            <span>导入</span>
+                            <span>Импорт</span>
                         </label>
                         <input type="file" style="display: none;" id="importChatInput" accept="application/json" />
                                 <div id="clearChatSet">
                                     <svg width="24" height="24">
                                         <use xlink:href="#clearAllIcon" />
                                     </svg>
-                                    <span>清空</span>
+                                    <span>Пустой</span>
                                 </div>
                             </div>
                         </div>
                         <div class="setContent">
-                            <div class="setTitle">设置</div>
+                            <div class="setTitle">Настройки</div>
                             <div class="setDetail dataDetail">
                                 <div id="exportSet">
                                     <svg width="24" height="24">
                                         <use xlink:href="#exportSetIcon" />
                                     </svg>
-                                    <span>导出</span>
+                                    <span>Экспорт</span>
                                 </div>
                                 <label id="importSet" for="importSetInput">
                                     <svg width="24" height="24">
                                         <use xlink:href="#importSetIcon" />
                                     </svg>
-                                    <span>导入</span>
+                                    <span>Импорт</span>
                                 </label>
                         <input type="file" style="display: none;" id="importSetInput" accept="application/json" />
                                 <div id="resetSet">
                                     <svg width="22" height="22" style="transform: scaleX(-1)">
                                         <use xlink:href="#refreshIcon" />
                                     </svg>
-                                    <span>重置</span>
+                                    <span>Перезагрузка</span>
                                 </div>
                             </div>
                         </div>
                         <div class="setContent">
-                            <div class="setTitle">本地存储</div>
+                            <div class="setTitle">Локальное хранилище</div>
                             <div class="setDetail">
                                 <div class="progressBar">
                                     <div class="nowProgress" id="usedStorageBar"></div>
                                 </div>
                                 <div class="progressDetail">
-                                    <div><span>已用 </span><span id="usedStorage"></span></div>
-                                    <div><span>可用 </span><span id="availableStorage"></span></div>
+                                    <div><span>Использ. </span><span id="usedStorage"></span></div>
+                                    <div><span>Доступн. </span><span id="availableStorage"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -609,14 +609,14 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         const searchChatEle = document.getElementById("searchChat");
         const voiceRecEle = document.getElementById("voiceRecIcon");
         const voiceRecSetEle = document.getElementById("voiceRecSetting");
-        let voiceType = 1; // 设置 0: 提问语音，1：回答语音
-        let voiceRole = []; // 语音
-        let voiceVolume = []; //音量
-        let voiceRate = []; // 语速
-        let voicePitch = []; // 音调
-        let enableContVoice; // 连续朗读
-        let enableAutoVoice; // 自动朗读
-        let existVoice = 2; // 3:Azure语音 2:使用edge在线语音, 1:使用本地语音, 0:不支持语音
+        let voiceType = 1; // 0 : спрашивающий 1：отвечающий
+        let voiceRole = []; // Голос
+        let voiceVolume = []; // Тембр
+        let voiceRate = []; // Скорость речи
+        let voicePitch = []; // Тон
+        let enableContVoice; // Непрерывное чтение
+        let enableAutoVoice; // Автоматическое чтение
+        let existVoice = 2; // 3:Azure 2:Edge 1:системный 0:голос не поддерживается
         let azureToken;
         let azureTokenTimer;
         let azureRegion;
