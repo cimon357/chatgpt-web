@@ -623,8 +623,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         let azureKey;
         let azureRole = [];
         let azureStyle = [];
-        let isSafeEnv = location.hostname.match(/127.|localhost/) || location.protocol.match(/https:|file:/); // https或本地安全环境
-        let supportRec = !!window.webkitSpeechRecognition && isSafeEnv; // 是否支持语音识别输入
+        let isSafeEnv = location.hostname.match(/127.|localhost/) || location.protocol.match(/https:|file:/); // https или локальная среда безопасности
+        let supportRec = !!window.webkitSpeechRecognition && isSafeEnv; // Поддерживать ли ввод с помощью распознавания голоса
         let recing = false;
         let toggleRecEv;
         const dayMs = 8.64e7;
@@ -682,22 +682,22 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 document.getElementById("voiceRec").style.display = "block";
                 textarea.classList.add("message_if_voice");
                 let langs = [ // from https://www.google.com/intl/en/chrome/demos/speech.html
-                    ['中文', ['cmn-Hans-CN', '普通话 (大陆)'],
-                        ['cmn-Hans-HK', '普通话 (香港)'],
-                        ['cmn-Hant-TW', '中文 (台灣)'],
-                        ['yue-Hant-HK', '粵語 (香港)']],
-                    ['English', ['en-US', 'United States'],
-                        ['en-GB', 'United Kingdom'],
-                        ['en-AU', 'Australia'],
-                        ['en-CA', 'Canada'],
-                        ['en-IN', 'India'],
-                        ['en-KE', 'Kenya'],
-                        ['en-TZ', 'Tanzania'],
-                        ['en-GH', 'Ghana'],
-                        ['en-NZ', 'New Zealand'],
-                        ['en-NG', 'Nigeria'],
-                        ['en-ZA', 'South Africa'],
-                        ['en-PH', 'Philippines']]
+                    ['Китайский', ['cmn-Hans-CN', '普通话 (Китай)'],
+                        ['cmn-Hans-HK', '普通话 (Гонконг)'],
+                        ['cmn-Hant-TW', '中文 (Тайвань)'],
+                        ['yue-Hant-HK', '粵語 (Гонконг)']],
+                    ['Английский', ['en-US', 'США'],
+                        ['en-GB', 'Великобритания'],
+                        ['en-AU', 'Австралия'],
+                        ['en-CA', 'Канада'],
+                        ['en-IN', 'Индия'],
+                        ['en-KE', 'Кения'],
+                        ['en-TZ', 'Танзания'],
+                        ['en-GH', 'Гана'],
+                        ['en-NZ', 'Новая Зеландия'],
+                        ['en-NG', 'Нигерия'],
+                        ['en-ZA', 'Южная Африка'],
+                        ['en-PH', 'Филиппины']]
             ];
             langs.forEach((lang, i) => {
                 select_language.options.add(new Option(lang[0], i));
@@ -774,13 +774,13 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 };
                 const errorEvent = (ev) => {
                 if (event.error === 'no-speech') {
-                    notyf.error("未识别到语音，请调整设备后重试！")
+                    notyf.error("Голос не распознается, настройте устройство и повторите попытку!")
                 }
                 if (event.error === 'audio-capture') {
-                    notyf.error("未找到麦克风，请确保已安装麦克风！")
+                    notyf.error("Микрофон не найден, убедитесь, что он установлен!")
                 }
                 if (event.error === 'not-allowed') {
-                    notyf.error("未允许使用麦克风的权限！")
+                    notyf.error("Нет разрешения на использование микрофона!")
                     }
                     endEvent();
                 }
@@ -948,7 +948,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                         response.text().then(text => {
                             try {
                                 let json = JSON.parse(text);
-                                notyf.error("由于订阅密钥无效或 API 端点错误，访问被拒绝！");
+                                notyf.error("Доступ запрещен из-за недопустимого ключа подписки или из-за неправильного API!");
                                 rej();
                             } catch (e) {
                                 azureToken = text;
@@ -984,7 +984,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                     initVoiceSetting(json);
                                     res();
                                 }).catch(e => {
-                                    notyf.error("由于订阅密钥无效或 API 端点错误，访问被拒绝！");
+                                    notyf.error("Доступ запрещен из-за недопустимого ключа подписки или из-за неправильного API!");
                                     rej();
                                 })
                             }).catch(e => {
@@ -1114,7 +1114,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         const initVoiceSetting = (voices) => {
             let isOnline = existVoice >= 2;
             let voicesEle = document.getElementById("preSetSpeech");
-            // 支持中文和英文
+            // Поддержка китайского и английского языков
             voices = isOnline ? voices.filter(item => item.Locale.match(/^(zh-|en-)/)) : voices.filter(item => item.lang.match(/^(zh-|en-)/));
             if (isOnline) {
                 voices.map(item => {
@@ -1124,7 +1124,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             }
             voices.sort((a, b) => {
                 if (a.lang.slice(0, 2) === b.lang.slice(0, 2)) return 0;
-                return (a.lang < b.lang) ? 1 : -1; // 中文在前"z"
+                return (a.lang < b.lang) ? 1 : -1; // Китайский предпочтителен"z"
             });
             voices.map(item => {
                 if (item.name.match(/^(Google |Microsoft )/)) {
@@ -1326,25 +1326,25 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         const API_URL = "v1/chat/completions";
         let loading = false;
         let presetRoleData = {
-            "normal": "你是一个乐于助人的专业助手，尽量简明扼要地回答",
-            "cat": "你是一个可爱的猫娘，每句话结尾都要带个'喵'",
-            "emoji": "你的性格很活泼，每句话中都要有至少一个emoji图标",
+            "normal": "Вы полезный профессиональный помощник, старайтесь отвечать лаконично",
+            "cat": "Ты милая девочка-кошка, которая заканчивает каждое предложение словом 'мяу'",
+            "emoji": "Ваша личность очень живая, в каждом предложении должен быть хотя бы один значок смайлика",
             "image": "当你需要发送图片的时候，请用 markdown 语言生成，不要反斜线，不要代码框，需要使用 unsplash API时，遵循一下格式， https://source.unsplash.com/960x640/? ＜英文关键词＞"
         };
-        let modelVersion = "<%=modelver%>"; ; // 模型版本
-        let apiHost = "<%=apihosts%>"; // api反代地址
-        let customAPIKey = "<%=apikeys%>"; // 自定义apiKey
-        let systemRole; // 自定义系统角色
-        let roleNature; // 角色性格
-        let roleTemp; // 回答质量
-        let enableCont; // 是否开启连续对话，默认开启，对话包含上下文信息。
-        let enableLongReply; // 是否开启长回复，默认关闭，开启可能导致api费用增加。
+        let modelVersion = "<%=modelver%>"; ; // версия модели
+        let apiHost = "<%=apihosts%>"; // адрес api
+        let customAPIKey = "<%=apikeys%>"; // 自定义токен api
+        let systemRole; // Роль пользователя
+        let roleNature; // Характер
+        let roleTemp; // Качество ответа (температура?)
+        let enableCont; // Включить ли непрерывный диалог, по умолчанию включен и диалог содержит контекстную информацию
+        let enableLongReply; // Включить ли выдачу длинного ответа, по умолчанию отключен, включение может привести к увеличению платы за API
         let longReplyFlag;
-        let textSpeed; // 打字机速度，越小越快
-        let voiceIns; // Audio or SpeechSynthesisUtterance
-        const supportMSE = !!window.MediaSource; // 是否支持MSE（除了ios应该都支持）
+        let textSpeed; // Скорость вывода ответа, чем меньше, тем быстрее
+        let voiceIns; // Аудио или синтез речи
+        const supportMSE = !!window.MediaSource; // Поддерживать ли MSE（Дополнение к ios должно поддерживать）
         let voiceMIME = "audio/mpeg";
-        let userAvatar = "<%=userpic%>" || "/luci-static/chatgpt-web/user/girl.jpg"; // 用户头像
+        let userAvatar = "<%=userpic%>" || "/luci-static/chatgpt-web/user/girl.jpg"; // Аватарка
 
         // console.log ( "apihots:" + apiHost +"  ..  customAPIKey:" +customAPIKey);
         const scrollToBottom = () => {
@@ -1461,8 +1461,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             availableStorage.textContent = Math.floor(remain / 1048576 * 100) / 100 + "MB";
         };
         const md = markdownit({
-            linkify: true, // 识别链接
-            highlight: function (str, lang) { // markdown高亮
+            linkify: true, // определить ссылку
+            highlight: function (str, lang) { // выделить markdown
                 try {
                     return hljs.highlightAuto(str).value;
                 } catch (e) { }
@@ -1515,8 +1515,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         const enhanceCode = (render, options = {}) => (...args) => {
             /* args = [tokens, idx, options, env, slf] */
             const {
-                btnText = "复制代码", // button text
-                successText = "复制成功", // copy-success text
+                btnText = "Скопировать код", // button text
+                successText = "Скопировано", // copy-success text
                 successTextDelay = 2000, // successText show time [ms]
                 showCodeLanguage = true, // false | show code language
             } = options;
@@ -1550,9 +1550,9 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             if (editingIdx !== void 0) {
                 chatlog.children[systemRole ? editingIdx - 1 : editingIdx].classList.remove("showEditReq");
             }
-            sendBtnEle.children[0].textContent = "发送";
+            sendBtnEle.children[0].textContent = "Отправить";
             textarea.value = originText;
-            clearEle.title = "清空会话";
+            clearEle.title = "Очистить";
             clearEle.classList.remove("closeConv");
             originText = void 0;
             editingIdx = void 0;
@@ -1602,8 +1602,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     textarea.value = data[idx].content;
                     textarea.dispatchEvent(new Event("input"));
                     textarea.focus();
-                    sendBtnEle.children[0].textContent = "更新";
-                    clearEle.title = "取消";
+                    sendBtnEle.children[0].textContent = "Возобновить";
+                    clearEle.title = "Отмена";
                     clearEle.classList.add("closeConv");
                 } else if (id === "refreshMd") {
                     if (noLoading()) {
@@ -1628,10 +1628,10 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 } else if (id === "copyMd") {
                     idx = systemRole ? idx + 1 : idx;
                     copyClickMd(idx);
-                    notyf.success("复制成功");
+                    notyf.success("Скопировано");
                 } else if (id === "delMd") {
                     if (noLoading()) {
-                        if (confirmAction("是否删除此消息?")) {
+                        if (confirmAction("Вы хотите удалить это сообщение?")) {
                             chatlog.removeChild(chatlog.children[idx]);
                             idx = systemRole ? idx + 1 : idx;
                             if (currentVoiceIdx !== void 0) {
@@ -1667,25 +1667,25 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             ele.appendChild(mdOption);
             let optionWidth = existVoice >= 2 ? 140 : 105;
             mdOption.innerHTML += `<div class="optionItems" style="width:${optionWidth}px;left:-${optionWidth - 10}px">`
-                + (ele.className === "request" ? `<div data-id="editMd" class="optionItem" title="编辑">
+                + (ele.className === "request" ? `<div data-id="editMd" class="optionItem" title="Редактировать">
                 <svg width="18" height="18"><use xlink:href="#chatEditIcon" /></svg>
-                </div>` : `<div data-id="refreshMd" class="refreshReq optionItem" title="刷新">
+                </div>` : `<div data-id="refreshMd" class="refreshReq optionItem" title="Обновить">
                 <svg width="16" height="16" ><use xlink:href="#refreshIcon" /></svg>
                 <svg width="16" height="16" ><use xlink:href="#halfRefIcon" /></svg>
                 </div>`) +
-                `<div data-id="copyMd" class="optionItem" title="复制">
+                `<div data-id="copyMd" class="optionItem" title="Копировать">
                 <svg width="20" height="20"><use xlink:href="#copyIcon" /></svg>
             </div>
-            <div data-id="delMd" class="optionItem" title="删除">
+            <div data-id="delMd" class="optionItem" title="Удалить">
                 <svg width="20" height="20"><use xlink:href="#delIcon" /></svg>
-            </div>` + (existVoice >= 2 ? `<div data-id="downAudio" class="optionItem" title="下载语音">
+            </div>` + (existVoice >= 2 ? `<div data-id="downAudio" class="optionItem" title="Загрузить голос">
                 <svg width="20" height="20"><use xlink:href="#downAudioIcon" /></svg>
             </div>` : "") + `</div>`;
             if (existVoice) {
                 mdOption.innerHTML += `<div class="voiceCls readyVoice" data-id="voiceMd">
-                <svg width="21" height="21" role="img"><title>朗读</title><use xlink:href="#readyVoiceIcon" /></svg>
-                <svg width="21" height="21" role="img"><title>暂停</title><use xlink:href="#pauseVoiceIcon" /></svg>
-                <svg width="21" height="21" role="img"><title>继续</title><use xlink:href="#resumeVoiceIcon" /></svg>
+                <svg width="21" height="21" role="img"><title>Читать вслух</title><use xlink:href="#readyVoiceIcon" /></svg>
+                <svg width="21" height="21" role="img"><title>Пауза</title><use xlink:href="#pauseVoiceIcon" /></svg>
+                <svg width="21" height="21" role="img"><title>Продолжить</title><use xlink:href="#resumeVoiceIcon" /></svg>
                 </div>`
             }
             mdOption.onclick = mdOptionEvent;
@@ -1867,7 +1867,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             }
         }
         const delFolder = (folderIdx, ele) => {
-            if (confirmAction("是否删除文件夹?")) {
+            if (confirmAction("Удалить папку?")) {
                 let delData = folderData[folderIdx];
                 let idxs = delData.idxs.sort();
                 ele.parentElement.remove();
@@ -1938,10 +1938,10 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <div class="folderName"></div>
                     <div class="folderNum"></div>
                 </div>
-                <div class="folderOption"><svg data-type="folderEdit" style="margin-right:2px" width="24" height="24" role="img"><title>编辑</title><use xlink:href="#chatEditIcon" /></svg>
-                <svg data-type="folderDel" width="24" height="24" role="img"><title>删除</title><use xlink:href="#delIcon" /></svg></div>`
+                <div class="folderOption"><svg data-type="folderEdit" style="margin-right:2px" width="24" height="24" role="img"><title>Редактировать</title><use xlink:href="#chatEditIcon" /></svg>
+                <svg data-type="folderDel" width="24" height="24" role="img"><title>Удалить</title><use xlink:href="#delIcon" /></svg></div>`
             headEle.children[1].children[0].textContent = folder.name;
-            headEle.children[1].children[1].textContent = folder.idxs.length + "个会话";
+            headEle.children[1].children[1].textContent = folder.idxs.length + "Сессии";
             folderEle.appendChild(headEle);
             folderEle.ondragstart = folderDragStartEv;
             headEle.onclick = folderEleEvent;
@@ -1955,7 +1955,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             else {folderListEle.insertBefore(folderEle, folderListEle.firstChild)}
         }
         document.getElementById("newFolder").onclick = function () {
-            folderData.unshift({name: "新文件夹", idxs: []});
+            folderData.unshift({name: "Новая папка", idxs: []});
             folderEleAdd(0, false);
             updateChatIdxs();
             folderListEle.parentElement.scrollTop = 0;
@@ -1981,21 +1981,21 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <div class="chatName"></div>
                     <div class="chatPre"></div>
                 </div>
-                <div class="chatOption"><svg data-type="chatEdit" style="margin-right:2px" width="24" height="24" role="img"><title>编辑</title><use xlink:href="#chatEditIcon" /></svg>
-                <svg data-type="chatDel" width="24" height="24" role="img"><title>删除</title><use xlink:href="#delIcon" /></svg></div>`
+                <div class="chatOption"><svg data-type="chatEdit" style="margin-right:2px" width="24" height="24" role="img"><title>Редактировать</title><use xlink:href="#chatEditIcon" /></svg>
+                <svg data-type="chatDel" width="24" height="24" role="img"><title>Удалить</title><use xlink:href="#delIcon" /></svg></div>`
             if (appendChat) chatListEle.appendChild(chatEle);
             initChatEle(idx, chatEle);
             chatEle.onclick = chatEleEvent;
             return chatEle;
         };
         const addNewChat = () => {
-            let chat = {name: "新的会话", data: []};
+            let chat = {name: "Новая сессия", data: []};
             chatsData.push(chat);
             chatIdxs.push(chatsData.length - 1);
             updateChats();
         };
         const delChat = (idx, ele, folderIdx, inFolderIdx) => {
-            if (confirmAction("是否删除会话?")) {
+            if (confirmAction("Удалить сеанс?")) {
                 endAll();
                 if (folderIdx !== void 0) {
                     let folder = folderData[folderIdx];
@@ -2391,13 +2391,13 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                         throw new Error("fmt error");
                     }
                 } catch (e) {
-                    notyf.error("导入失败，请检查文件格式！");
+                    notyf.error("Ошибка импорта, проверьте формат файла!");
                 }
                 this.value = "";
             })
         };
         clearChatSet.onclick = clearChat.onclick = () => {
-            if (confirmAction("是否清空所有会话和文件夹?")) {
+            if (confirmAction("Очистить все сеансы и папки?")) {
                 chatsData.length = 0;
                 chatIdxs.length = 0;
                 folderData.length = 0;
@@ -2443,13 +2443,13 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     initRecSetting();
                     checkStorage();
                 } catch (e) {
-                    notyf.error("导入失败，请检查文件格式！");
+                    notyf.error("Ошибка импорта, проверьте формат файла!");
                 }
                 this.value = "";
             })
         };
         document.getElementById("resetSet").onclick = () => {
-            if (confirmAction("是否还原所有设置为默认值?")) {
+            if (confirmAction("Восстановить настройки по умолчанию?")) {
                 endAll();
                 let data = {};
                 for (let i = 0; i < localSetKeys.length; i++) {
@@ -2590,7 +2590,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         }
         let delayId;
         const delay = () => {
-            return new Promise((resolve) => delayId = setTimeout(resolve, textSpeed)); //打字机时间间隔
+            return new Promise((resolve) => delayId = setTimeout(resolve, textSpeed)); //Пауза при выаоде ответа
         }
         const uuidv4 = () => {
             let uuid = ([1e7] + 1e3 + 4e3 + 8e3 + 1e11).replace(/[018]/g, c =>
@@ -3093,7 +3093,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         const streamGen = async (long) => {
             controller = new AbortController();
             controllerId = setTimeout(() => {
-                notyf.error("请求超时，请稍后重试！");
+                notyf.error("Время запроса истекло, повторите попытку позже!");
                 stopLoading();
             }, 30000);
             let headers = {"Content-Type": "application/json"};
@@ -3146,15 +3146,15 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 controllerId = void 0;
                 if (res.status !== 200) {
                     if (res.status === 401) {
-                        notyf.error("API密钥错误或失效，请检查API密钥！")
+                        notyf.error("Ключ API неверен или недействителен, проверьте ключ API!")
                     } else if (res.status === 400) {
-                        notyf.error("请求内容过大，请删除部分对话或打开设置关闭连续对话！");
+                        notyf.error("Запрос слишком большой, пожалуйста, удалите часть разговора или откройте настройки, чтобы отключить контекст разговора!");
                     } else if (res.status === 404) {
-                        notyf.error("无权使用此模型，请打开设置选择其他GPT模型！");
+                        notyf.error("У вас нет прав на использование этой модели. Откройте настройки, чтобы выбрать другую модель GPT!");
                     } else if (res.status === 429) {
-                        notyf.error(res.statusText ? "触发API调用频率限制，请稍后重试！" : "API使用超出限额，请检查您的账单！");
+                        notyf.error(res.statusText ? "Число вызовов API ограничено, повторите попытку позже!" : "Использование API превысило лимит, пожалуйста, проверьте свой счет!");
                     } else {
-                        notyf.error("网关错误或超时，请稍后重试！");
+                        notyf.error("Ошибка шлюза или тайм-аут, повторите попытку позже!");
                     }
                     stopLoading();
                     return;
@@ -3179,8 +3179,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                         let lenStop = payload.choices[0].finish_reason === "length";
                                         let longReplyFlag = enableLongReply && lenStop;
                                         let ele = currentResEle.lastChild.children[0].children[0];
-                                        if (!enableLongReply && lenStop) {ele.className = "halfRefReq optionItem"; ele.title = "继续"}
-                                        else {ele.className = "refreshReq optionItem"; ele.title = "刷新"};
+                                        if (!enableLongReply && lenStop) {ele.className = "halfRefReq optionItem"; ele.title = "Продолжить"}
+                                        else {ele.className = "refreshReq optionItem"; ele.title = "Обновить"};
                                         if (existVoice && enableAutoVoice && currentVoiceIdx === autoVoiceDataIdx) {
                                             let voiceText = longReplyFlag ? "" : progressData.slice(autoVoiceIdx), stop = !longReplyFlag;
                                             autoSpeechEvent(voiceText, currentResEle, false, stop);
@@ -3225,7 +3225,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 await readChunk();
             } catch (e) {
                 if (e.message.indexOf("aborted") === -1) {
-                    notyf.error("访问接口失败，请检查接口！")
+                    notyf.error("Не удалось получить доступ к интерфейсу, проверьте интерфейс!")
                     stopLoading();
                 }
             }
@@ -3296,7 +3296,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 data.push({role: "user", content: message});
             }
             requestEle.children[1].textContent = message;
-            if (chatsData[activeChatIdx].name === "新的会话") {
+            if (chatsData[activeChatIdx].name === "Новая сессия") {
                 if (message.length > 20) message = message.slice(0, 17) + "...";
                 chatsData[activeChatIdx].name = message;
                 activeChatEle.children[1].children[0].textContent = message;
@@ -3326,7 +3326,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         stopEle.onclick = stopLoading;
         clearEle.onclick = () => {
             if (editingIdx === void 0) {
-                if (noLoading() && confirmAction("是否清空会话?")) {
+                if (noLoading() && confirmAction("Вы хотите очистить сессию?")) {
                     endSpeak();
                     if (systemRole) {data.length = 1}
                     else {data.length = 0}
