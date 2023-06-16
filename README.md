@@ -1,16 +1,16 @@
-luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работы использует API OpenAI. Для использования нужен ключ (токен) API.
+luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работы использует API OpenAI. Для работы модуля нужен ключ (токен) API.
 Исходная версия модуля: https://github.com/sirpdboy/chatgpt-web
 
 Мной сделан перевод на русский язык:
 - добавлен файл /chatgpt-web/po/ru-ru/chatgpt-web.po
 - переведены строки в файле /chatgpt-web/luasrc/view/chatgpt-web.htm
 
-Есть еще файлы с промптами (запросами)
+Есть еще файлы с промптами (запросами):
 	prompts-zh-TW.json
 	prompts-zh.json
-пока их оставлю так, как есть. 
+пока эти файлы оставлю так, как есть. 
 
-Есть озвучка ответов. Как бы добавить поддержку русского языка?
+Есть озвучка ответов. Как добавить поддержку русского языка?
 Это в файле /chatgpt-web/luasrc/view/chatgpt-web.htm, строка 684.
 
 Дальше перевод README на исходной странице проекта.
@@ -32,9 +32,11 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 ### Загрузка исходного кода и настройка меню конфигурации:
 
 	git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt
-	или git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt
+или 
+	git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt
     	make menuconfig
-	Выбрать в меню конфигурации LuCI -> Applications, отметить luci-app-chatgpt, сохранить и выйти из меню.
+	
+Выбрать в меню конфигурации LuCI -> Applications, отметить luci-app-chatgpt, сохранить и выйти из меню.
  
 ### Компиляция:
 
