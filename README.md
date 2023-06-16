@@ -5,9 +5,9 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 - добавлен файл /chatgpt-web/po/ru-ru/chatgpt-web.po
 - переведены строки в файле /chatgpt-web/luasrc/view/chatgpt-web.htm
 
-Есть еще файлы с промптами (запросами):
-	prompts-zh-TW.json
-	prompts-zh.json
+Есть еще файлы с промптами (запросами): <br>
+	prompts-zh-TW.json <br>
+	prompts-zh.json<br>
 пока эти файлы оставлю так, как есть. 
 
 Есть озвучка ответов. Как добавить поддержку русского языка?
