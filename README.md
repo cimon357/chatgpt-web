@@ -10,18 +10,18 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 	prompts-zh.json<br>
 пока эти файлы оставлю так, как есть. 
 
-Есть озвучка ответов. Как добавить поддержку русского языка?
+Есть озвучка ответов. Как добавить поддержку русского языка?<br>
 Это в файле /chatgpt-web/luasrc/view/chatgpt-web.htm, строка 684.
 
 Дальше перевод README на исходной странице проекта.
 
 Связанные проекты: 
-[markdown-it](https://github.com/markdown-it/markdown-it), 
-[highlight.js](https://github.com/highlightjs/highlight.js), 
-[github-markdown-css](https://github.com/sindresorhus/github-markdown-css), 
-[chatgpt-html](https://github.com/slippersheepig/chatgpt-html), 
-[markdown-it-copy](https://github.com/ReAlign/markdown-it-copy), 
-[markdown-it-texmath](https://github.com/goessner/markdown-it-texmath), 
+[markdown-it](https://github.com/markdown-it/markdown-it), <br>
+[highlight.js](https://github.com/highlightjs/highlight.js), <br>
+[github-markdown-css](https://github.com/sindresorhus/github-markdown-css), <br>
+[chatgpt-html](https://github.com/slippersheepig/chatgpt-html), <br>
+[markdown-it-copy](https://github.com/ReAlign/markdown-it-copy), <br>
+[markdown-it-texmath](https://github.com/goessner/markdown-it-texmath), <br>
 [awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
 
 
@@ -33,7 +33,7 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 
 	git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt
 или 
-	git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt
+	git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt <br>
     	make menuconfig
 	
 Выбрать в меню конфигурации LuCI -> Applications, отметить luci-app-chatgpt, сохранить и выйти из меню.
@@ -60,15 +60,15 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 
 - Поддержка левой боковой панели, очистка диалогов, поиск в диалогах, создание/переименование/удаление (папок/диалогов), экспорт/импорт/сброс данных диалогов и настроек, локальное хранилище.
 
-- Дополнительные системные роли, не включенные по умолчанию. 
-Есть четыре предустановленных роли, другие роли будут добавлены позже.
+- Дополнительные системные роли, не включенные по умолчанию. <br>
+Есть четыре предустановленных роли, другие роли будут добавлены позже.<br>
 Четыре предустановленные роли: помощник, девочка-кошка, эмодзи, образ (роль). 
 
 - 可选角色性格，默认灵活创新，对应接口文档的top_p参数。
 
 - 可选回答质量，默认平衡，对应接口文档的temperature参数。
 
-- Настройка скорости вывода ответа, по умолчанию - быстро. Чем больше значение, тем выше скорость.
+- Настройка скорости вывода ответа, по умолчанию - быстро.<br> Чем больше значение, тем выше скорость.
 
 - Режим непрерывного диалога включен по умолчанию. В диалог включается контекстная информация, что приводит к увеличению затрат на API.
 
