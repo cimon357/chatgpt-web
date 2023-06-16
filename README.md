@@ -11,6 +11,7 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 пока их оставлю так, как есть. 
 
 Есть озвучка ответов. Как бы добавить поддержку русского языка?
+Это в файле /chatgpt-web/luasrc/view/chatgpt-web.htm, строка 684.
 
 Дальше перевод README на исходной странице проекта.
 
@@ -30,10 +31,10 @@ luci-app-chatgpt - клиент ChatGPT в OpenWRT, для своей работ
 
 ### Загрузка исходного кода и настройка меню конфигурации:
 
-	# git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt
-	git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt
+	git clone https://github.com/sirpdboy/chatgpt-web.git package/luci-app-chatgpt
+	или git clone https://github.com/cimon357/chatgpt-web.git package/luci-app-chatgpt
     	make menuconfig
-	# Выбрать в меню конфигурации LuCI -> Applications, отметить luci-app-chatgpt, сохранить и выйти из меню.
+	Выбрать в меню конфигурации LuCI -> Applications, отметить luci-app-chatgpt, сохранить и выйти из меню.
  
 ### Компиляция:
 
