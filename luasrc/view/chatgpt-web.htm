@@ -283,8 +283,8 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                     <option value="">По умолчанию</option>
                                     <option value="normal">Помощник</option>
                                     <option value="cat">Девочка-кошка</option>
-                                    <option value="emoji">(?) emoji</option>
-                                    <option value="image">(?) image</option>
+                                    <option value="emoji">Эмоциональный</option>
+                                    <option value="image">Изображение</option>
                                 </select>
                             </div>
                         </div>
@@ -292,19 +292,19 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                             id="systemInput"></textarea>
                     </div>
                     <div>
-                        <span>Характер</span>
+                        <span>Качество ответа (top_p)</span>
                             <input type="range" id="top_p" min="0" max="1" value="0.7" step="0.05" />
                         <div class="selectDef">
-                            <span>Точный и строгий</span>
+                            <span>Строгий</span>
                             <span>Креативный</span>
                         </div>
                     </div>
                     <div>
-                        <span>Качество ответа</span>
+                        <span>Качество ответа (температура)</span>
                         <input type="range" id="temp" min="0" max="2" value="1" step="0.05" />
                         <div class="selectDef">
-                                <span>(?) Повторная консервация</span>
-                                <span>(?) Ерунда</span>
+                                <span>Строгий</span>
+                                <span>Креативный</span>
                             </div>
                         </div>
                         <div>
@@ -396,11 +396,11 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                             </div>
                         </div>
                         <div>
-                            <span>Тон</span>
+                            <span>Тональность</span>
                             <input type="range" id="voicePitch" min="0" max="2" value="1" step="0.1" />
                             <div class="selectDef">
-                                <span>(?) 平淡</span>
-                                <span>(?) 起伏</span>
+                                <span>Монотонный</span>
+                                <span>Разная</span>
                             </div>
                         </div>
                         <div>
@@ -1328,21 +1328,21 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
         let presetRoleData = {
             "normal": "Вы полезный профессиональный помощник, старайтесь отвечать лаконично",
             "cat": "Ты милая девочка-кошка, которая заканчивает каждое предложение словом 'мяу'",
-            "emoji": "Ваша личность очень живая, в каждом предложении должен быть хотя бы один значок смайлика",
-            "image": "当你需要发送图片的时候，请用 markdown 语言生成，不要反斜线，不要代码框，需要使用 unsplash API时，遵循一下格式， https://source.unsplash.com/960x640/? ＜英文关键词＞"
+            "emoji": "Ваша личность очень живая, в каждом предложении должен быть хотя бы один смайлик",
+            "image": "Если вам нужно отправить фотографии, пожалуйста, используйте markdown без использования обратной косой черты，не кодируйте поле, когда нужно использовать unsplash API，следуйте формату， https://source.unsplash.com/960x640/? ＜английские ключевые слова＞"
         };
-        let modelVersion = "<%=modelver%>"; ; // версия модели
-        let apiHost = "<%=apihosts%>"; // адрес api
-        let customAPIKey = "<%=apikeys%>"; // 自定义токен api
-        let systemRole; // Роль пользователя
+        let modelVersion = "<%=modelver%>"; ; // Версия модели
+        let apiHost = "<%=apihosts%>"; // Адрес хоста api
+        let customAPIKey = "<%=apikeys%>"; // Пользовательский ключ api
+        let systemRole; // Системная роль 
         let roleNature; // Характер
-        let roleTemp; // Качество ответа (температура?)
+        let roleTemp; // Качество ответа (температура)
         let enableCont; // Включить ли непрерывный диалог, по умолчанию включен и диалог содержит контекстную информацию
         let enableLongReply; // Включить ли выдачу длинного ответа, по умолчанию отключен, включение может привести к увеличению платы за API
         let longReplyFlag;
         let textSpeed; // Скорость вывода ответа, чем меньше, тем быстрее
-        let voiceIns; // Аудио или синтез речи
-        const supportMSE = !!window.MediaSource; // Поддерживать ли MSE（Дополнение к ios должно поддерживать）
+        let voiceIns; // Синтез речи
+        const supportMSE = !!window.MediaSource; // Поддерживать ли MSE （дополнение к ios должно поддерживать）
         let voiceMIME = "audio/mpeg";
         let userAvatar = "<%=userpic%>" || "/luci-static/chatgpt-web/user/girl.jpg"; // Аватарка
 
@@ -3146,9 +3146,9 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 controllerId = void 0;
                 if (res.status !== 200) {
                     if (res.status === 401) {
-                        notyf.error("Ключ API неверен или недействителен, проверьте ключ API!")
+                        notyf.error("Ключ API неверный или недействительный, проверьте ключ API!")
                     } else if (res.status === 400) {
-                        notyf.error("Запрос слишком большой, пожалуйста, удалите часть разговора или откройте настройки, чтобы отключить контекст разговора!");
+                        notyf.error("Запрос слишком большой, пожалуйста, удалите часть диалога или откройте настройки, чтобы отключить контекст диалога!");
                     } else if (res.status === 404) {
                         notyf.error("У вас нет прав на использование этой модели. Откройте настройки, чтобы выбрать другую модель GPT!");
                     } else if (res.status === 429) {
