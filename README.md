@@ -41,6 +41,10 @@ make package/luci-app-chatgpt/compile V=s
  
 ## Настройки модуля:
 
+Для работы нужен пакет luci-compat, иначе будет ошибка.
+
+opkg install luci-compat
+
 Откройте основные настройки luci-app-chatgpt, укажите ключ API, используемую модель ChatGPT, укажите интерфейс OpenAI, 
 выберите аватарку пользователя и т.д. 
     
