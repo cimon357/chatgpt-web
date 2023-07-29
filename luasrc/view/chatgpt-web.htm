@@ -206,7 +206,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <svg width="24" height="24">
                         <use xlink:href="#addIcon" />
                     </svg>
-                    <span>Новая сессия</span>
+                    <span>Новая беседа</span>
                 </div>
                 <div id="newFolder" title="Новая папка">
                     <svg width="24" height="24">
@@ -229,7 +229,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
 			
             <div class="navFooter">
                 <div class="navFunc">
-                    <div id="clearChat" title="Пустой">
+                    <div id="clearChat" title="Новая">
                         <svg width="24" height="24">
                             <use xlink:href="#clearAllIcon" />
                         </svg>
@@ -270,13 +270,13 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     <div class="setSwitch">
                         <div data-id="convOption" class="activeSwitch">Диалог</div>
                         <div data-id="speechOption">Синтез речи</div>
-                        <div data-id="recOption">Распознавание речи</div>
+                        <div data-id="recOption">Распозн.речи</div>
                     </div>
                     <div id="convOption">
 
                     <div>
                         <div class="justSetLine presetSelect">
-                            <div>Системная роль</div>
+                            <div>Роль</div>
                             <div>
                                 <label for="preSetSystem">Роль по умолчанию</label>
                                 <select id="preSetSystem">
@@ -292,7 +292,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                             id="systemInput"></textarea>
                     </div>
                     <div>
-                        <span>Качество ответа (top_p)</span>
+                        <span>Качество ответа (параметр 'top_p')</span>
                             <input type="range" id="top_p" min="0" max="1" value="0.7" step="0.05" />
                         <div class="selectDef">
                             <span>Строгий</span>
@@ -300,7 +300,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                         </div>
                     </div>
                     <div>
-                        <span>Качество ответа (температура)</span>
+                        <span>Качество ответа (параметр 'температура')</span>
                         <input type="range" id="temp" min="0" max="2" value="1" step="0.05" />
                         <div class="selectDef">
                                 <span>Строгий</span>
@@ -316,7 +316,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                             </div>
                         </div>
                         <div>
-                            <span class="inlineTitle">Непрерывный диалог</span>
+                            <span class="inlineTitle">Непрерывн.диалог</span>
                             <label class="switch-slide">
                                 <input type="checkbox" id="enableCont" checked="true" hidden />
                             <label for="enableCont" class="switch-slide-label"></label>
@@ -466,12 +466,12 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                     </div>
                 </div>
                 <button class="loaded" id="sendbutton">
-                    <span>Отправить</span>
+                    <span>Ввод</span>
                     <svg style="margin:0 auto;height:40px;width:100%;">
                         <use xlink:href="#loadingIcon" />
                     </svg>
                 </button>
-                <button class="clearConv" title="Сброс">
+                <button class="clearConv" title="Сбросить">
                     <svg style="color: #e15b64;" width="29" height="29">
                         <use xlink:href="#closeIcon" />
                     </svg>
@@ -512,7 +512,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                     <svg width="24" height="24">
                                         <use xlink:href="#clearAllIcon" />
                                     </svg>
-                                    <span>Пустой</span>
+                                    <span>Новая</span>
                                 </div>
                             </div>
                         </div>
@@ -536,7 +536,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                     <svg width="22" height="22" style="transform: scaleX(-1)">
                                         <use xlink:href="#refreshIcon" />
                                     </svg>
-                                    <span>Перезагрузка</span>
+                                    <span>Сбросить</span>
                                 </div>
                             </div>
                         </div>
@@ -548,7 +548,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                                 </div>
                                 <div class="progressDetail">
                                     <div><span>Использ. </span><span id="usedStorage"></span></div>
-                                    <div><span>Доступн. </span><span id="availableStorage"></span></div>
+                                    <div><span>Доступно </span><span id="availableStorage"></span></div>
                                 </div>
                             </div>
                         </div>
@@ -1550,7 +1550,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             if (editingIdx !== void 0) {
                 chatlog.children[systemRole ? editingIdx - 1 : editingIdx].classList.remove("showEditReq");
             }
-            sendBtnEle.children[0].textContent = "Отправить";
+            sendBtnEle.children[0].textContent = "Ввод";
             textarea.value = originText;
             clearEle.title = "Очистить";
             clearEle.classList.remove("closeConv");
@@ -1678,7 +1678,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             </div>
             <div data-id="delMd" class="optionItem" title="Удалить">
                 <svg width="20" height="20"><use xlink:href="#delIcon" /></svg>
-            </div>` + (existVoice >= 2 ? `<div data-id="downAudio" class="optionItem" title="Загрузить голос">
+            </div>` + (existVoice >= 2 ? `<div data-id="downAudio" class="optionItem" title="Сохранить голосовое сообщение">
                 <svg width="20" height="20"><use xlink:href="#downAudioIcon" /></svg>
             </div>` : "") + `</div>`;
             if (existVoice) {
@@ -1989,7 +1989,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
             return chatEle;
         };
         const addNewChat = () => {
-            let chat = {name: "Новая сессия", data: []};
+            let chat = {name: "Новая беседа", data: []};
             chatsData.push(chat);
             chatIdxs.push(chatsData.length - 1);
             updateChats();
@@ -3296,7 +3296,7 @@ L20.4018 25.4983L16.071 22.9985V17.9991Z">
                 data.push({role: "user", content: message});
             }
             requestEle.children[1].textContent = message;
-            if (chatsData[activeChatIdx].name === "Новая сессия") {
+            if (chatsData[activeChatIdx].name === "Новая беседа") {
                 if (message.length > 20) message = message.slice(0, 17) + "...";
                 chatsData[activeChatIdx].name = message;
                 activeChatEle.children[1].children[0].textContent = message;
